@@ -147,7 +147,7 @@ const ValentineCard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FFD5C0] p-4 flex items-center justify-center w-full">
+    <div className="min-h-screen bg-[#FFD5C0] p-2 sm:p-4 flex items-center justify-center w-full overflow-x-hidden">
       <AnimatePresence>
         <div className="fixed inset-0 pointer-events-none hidden md:block">
           {messages.map((msg, index) => {
@@ -171,14 +171,14 @@ const ValentineCard = () => {
         </div>
 
         {/* First Card */}
-        <motion.div className="bg-[#FFE9CB] p-4 sm:p-6 rounded-xl shadow-lg max-w-2xl w-full mx-auto"
+        <motion.div className="bg-[#FFE9CB] p-3 sm:p-6 rounded-xl shadow-lg max-w-md sm:max-w-2xl w-full mx-auto"
           animate={isCorrect ? { x: '100vw' } : {}}
           transition={{ duration: 0.5 }}
           key="first-card"
         >
-          <div className="flex flex-col md:flex-row gap-6">
+          <div className="flex flex-col gap-4 sm:gap-6">
             {/* Image Frame Section */}
-            <div className="flex-1 md:w-1/2">
+            <div className="flex-1">
               <div className="border-4 border-white rounded-lg overflow-hidden">
                 <img 
                   src={require('./images/image17.jpg')}
@@ -189,7 +189,7 @@ const ValentineCard = () => {
             </div>
 
             {/* Input and Keypad Section */}
-            <div className="flex-1 md:w-1/2 flex flex-col items-center justify-center">
+            <div className="flex-1 flex flex-col items-center justify-center">
               <p className="text-xl font-just-another-hand mb-4 ml-15 text-[#995A5A]">
                 Enter the code
               </p>
@@ -219,7 +219,7 @@ const ValentineCard = () => {
         {/* Second Card */}
         {showSecondCard && (
           <motion.div
-            className="fixed inset-0 m-auto h-fit bg-[#FFE9CB] p-3 sm:p-6 rounded-xl shadow-lg max-w-2xl w-full"
+            className="fixed inset-0 m-auto h-fit bg-[#FFE9CB] p-3 sm:p-6 rounded-xl shadow-lg max-w-md sm:max-w-2xl w-full"
             initial={{ x: '-100vw' }}
             animate={showThirdCard ? { x: '-100vw' } : { x: 0 }}
             transition={{ duration: 0.5 }}
@@ -268,7 +268,7 @@ const ValentineCard = () => {
         {/* Third Card */}
         {showThirdCard && !showFourthCard && (
           <motion.div
-            className="fixed inset-0 m-auto h-fit bg-[#FFE9CB] p-3 sm:p-6 rounded-xl shadow-lg max-w-2xl w-full overflow-hidden"
+            className="fixed inset-0 m-auto h-fit bg-[#FFE9CB] p-3 sm:p-6 rounded-xl shadow-lg max-w-md sm:max-w-2xl w-full overflow-hidden"
             initial={{ x: '100vw' }}
             animate={showFourthCard ? { x: '-100vw' } : { x: 0 }}
             exit={{ x: '-100vw' }}
@@ -574,7 +574,7 @@ const ValentineCard = () => {
         {/* Fourth Card */}
         {showFourthCard && (
           <motion.div
-            className="fixed inset-0 m-auto h-fit bg-[#FFE9CB] p-3 sm:p-6 rounded-xl shadow-lg max-w-2xl w-full overflow-hidden"
+            className="fixed inset-0 m-auto h-fit bg-[#FFE9CB] p-3 sm:p-6 rounded-xl shadow-lg max-w-md sm:max-w-2xl w-full overflow-hidden"
             initial={{ x: '100vw' }}
             animate={{ x: 0 }}
             transition={{ duration: 0.5 }}

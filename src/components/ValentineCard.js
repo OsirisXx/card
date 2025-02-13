@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useWindowSize } from '../hooks/useWindowSize';
 
 const messages = [
   { 
@@ -97,7 +96,6 @@ const calculateTimeLeft = (startDate) => {
 };
 
 const ValentineCard = () => {
-  const { width } = useWindowSize();
   const [showThirdCard, setShowThirdCard] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const correctCode = '623';

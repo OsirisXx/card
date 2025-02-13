@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useWindowSize } from '../hooks/useWindowSize';
 
 const messages = [
   { 
@@ -41,7 +42,7 @@ const messages = [
   {  
     text: "Let's get lost in the in-between—that sacred space where 'you' and 'I' dissolve into something older than language",  
     side: "right"  
-  }  
+  }
 ]
 
 const FloatingMessage = ({ message, visible, side, showMessages }) => (
@@ -96,6 +97,8 @@ const calculateTimeLeft = (startDate) => {
 };
 
 const ValentineCard = () => {
+  const { width } = useWindowSize();
+  const isMobile = width < 768;
   const [showThirdCard, setShowThirdCard] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const correctCode = '623';
@@ -177,7 +180,7 @@ const ValentineCard = () => {
         >
           <div className="flex flex-col md:flex-row gap-6">
             {/* Image Frame Section */}
-            <div className="flex-1">
+            <div className="flex-1 md:w-1/2">
               <div className="border-4 border-white rounded-lg overflow-hidden">
                 <img 
                   src={require('./images/image17.jpg')}
@@ -188,8 +191,8 @@ const ValentineCard = () => {
             </div>
 
             {/* Input and Keypad Section */}
-            <div className="flex-1 flex flex-col items-center">
-              <p className="text-2xl font-just-another-hand mb-4 ml-20 text-[#995A5A]">
+            <div className="flex-1 md:w-1/2 flex flex-col items-center justify-center">
+              <p className="text-xl font-just-another-hand mb-4 ml-15 text-[#995A5A]">
                 Enter the code
               </p>
               {/* Display entered code */}
@@ -218,7 +221,7 @@ const ValentineCard = () => {
         {/* Second Card */}
         {showSecondCard && (
           <motion.div
-            className="absolute top-0 left-0 right-0 bottom-0 m-auto h-fit bg-[#FFE9CB] p-3 sm:p-6 rounded-xl shadow-lg max-w-2xl w-full"
+            className="fixed inset-0 m-auto h-fit bg-[#FFE9CB] p-3 sm:p-6 rounded-xl shadow-lg max-w-2xl w-full"
             initial={{ x: '-100vw' }}
             animate={showThirdCard ? { x: '-100vw' } : { x: 0 }}
             transition={{ duration: 0.5 }}
@@ -267,7 +270,7 @@ const ValentineCard = () => {
         {/* Third Card */}
         {showThirdCard && (
           <motion.div
-            className="absolute top-0 left-0 right-0 bottom-0 m-auto h-fit bg-[#FFE9CB] p-3 sm:p-6 rounded-xl shadow-lg max-w-2xl w-full overflow-hidden"
+            className="fixed inset-0 m-auto h-fit bg-[#FFE9CB] p-3 sm:p-6 rounded-xl shadow-lg max-w-2xl w-full overflow-hidden"
             initial={{ x: '100vw' }}
             animate={{ x: 0 }}
             transition={{ duration: 0.5 }}

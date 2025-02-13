@@ -98,7 +98,6 @@ const calculateTimeLeft = (startDate) => {
 
 const ValentineCard = () => {
   const { width } = useWindowSize();
-  const isMobile = width < 768;
   const [showThirdCard, setShowThirdCard] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const correctCode = '623';

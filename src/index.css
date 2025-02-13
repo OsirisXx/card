@@ -2,17 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Force proper viewport height on mobile */
-html, body {
-  height: -webkit-fill-available;
-  overflow: hidden;
-}
-
-body {
-  min-height: 100vh;
-  min-height: -webkit-fill-available;
-}
-
 /* Custom Scrollbar Styles */
 .custom-scrollbar::-webkit-scrollbar {
   width: 8px;

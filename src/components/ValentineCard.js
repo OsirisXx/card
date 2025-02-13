@@ -104,6 +104,7 @@ const ValentineCard = () => {
   const [isCorrect, setIsCorrect] = useState(false);
   const [showSecondCard, setShowSecondCard] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [showFourthCard, setShowFourthCard] = useState(false);
 
   const handleScroll = (e) => {
     const element = e.target;
@@ -160,10 +161,10 @@ const ValentineCard = () => {
                 visible={
                   scrollPosition >= scrollThreshold &&
                   scrollPosition < nextThreshold
-                  && showThirdCard
+                  && showThirdCard && !showFourthCard
                 }
                 side={msg.side}
-                showMessages={showThirdCard}
+                showMessages={showThirdCard && !showFourthCard}
               />
             );
           })}
@@ -257,7 +258,7 @@ const ValentineCard = () => {
             {/* Footer */}
             <button 
               onClick={() => setShowThirdCard(true)}
-              className="w-full bg-[#FFD5C0] py-2 rounded-lg text-center hover:opacity-90 transition-opacity"
+              className="w-full bg-[#EEAA9B] py-2 rounded-lg text-center hover:opacity-90 transition-opacity"
             >
               <span className="text-white text-lg font-just-another-hand">H & J</span>
             </button>
@@ -265,11 +266,12 @@ const ValentineCard = () => {
         )}
 
         {/* Third Card */}
-        {showThirdCard && (
+        {showThirdCard && !showFourthCard && (
           <motion.div
             className="fixed inset-0 m-auto h-fit bg-[#FFE9CB] p-3 sm:p-6 rounded-xl shadow-lg max-w-2xl w-full overflow-hidden"
             initial={{ x: '100vw' }}
-            animate={{ x: 0 }}
+            animate={showFourthCard ? { x: '-100vw' } : { x: 0 }}
+            exit={{ x: '-100vw' }}
             transition={{ duration: 0.5 }}
             key="third-card"
           >
@@ -561,8 +563,30 @@ const ValentineCard = () => {
 
             {/* Footer */}
             <button 
-              className="w-full bg-[#FFD5C0] py-2 rounded-lg text-center hover:opacity-90 transition-opacity"
-              onClick={() => {}}
+              className="w-full bg-[#EEAA9B] py-2 rounded-lg text-center hover:opacity-90 transition-opacity"
+              onClick={() => setShowFourthCard(true)}
+            >
+              <span className="text-white text-lg font-just-another-hand">H & J</span>
+            </button>
+          </motion.div>
+        )}
+
+        {/* Fourth Card */}
+        {showFourthCard && (
+          <motion.div
+            className="fixed inset-0 m-auto h-fit bg-[#FFE9CB] p-3 sm:p-6 rounded-xl shadow-lg max-w-2xl w-full overflow-hidden"
+            initial={{ x: '100vw' }}
+            animate={{ x: 0 }}
+            transition={{ duration: 0.5 }}
+            key="fourth-card"
+          >
+            <div className="flex flex-col items-center justify-center min-h-[400px]">
+              <h1 className="text-[#995A5A] text-4xl md:text-6xl font-just-another-hand text-center mb-8">
+                HAPPY VALENTINES DAY MY LOVE ❤️
+              </h1>
+            </div>
+            <button 
+              className="w-full bg-[#EEAA9B] py-2 rounded-lg text-center hover:opacity-90 transition-opacity"
             >
               <span className="text-white text-lg font-just-another-hand">H & J</span>
             </button>

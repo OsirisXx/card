@@ -101,7 +101,6 @@ const ValentineCard = () => {
   const correctCode = '623';
   const [code, setCode] = useState(['', '', '']);
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft('2023-06-23'));
-  const [isShaking, setIsShaking] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [showSecondCard, setShowSecondCard] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -138,10 +137,8 @@ const ValentineCard = () => {
           }, 500);
           setIsCorrect(true);
         } else {
-          setIsShaking(true);
           setTimeout(() => {
             setCode(['', '', '']);
-            setIsShaking(false);
           }, 500);
         }
       }

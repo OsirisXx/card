@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap');
+
+.App {
+  min-height: 100vh;
+  background-color: #FFD5C0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
